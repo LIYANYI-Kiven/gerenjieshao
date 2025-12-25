@@ -1,0 +1,32 @@
+---
+layout: default
+title: 首页
+---
+
+<div class="home">
+
+  <div class="hero">
+    <h1>你好，我是<span class="highlight">开发者</span>。</h1>
+    <p class="lead">欢迎来到我的个人主页。在这里，我记录学习心得，分享技术经验，也展示我的个人项目。</p>
+    <a href="{{ "/about" | relative_url }}" class="btn">了解更多</a>
+  </div>
+
+  <h2 class="section-title">最新文章</h2>
+
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        <span class="post-meta">{{ post.date | date: "%Y-%m-%d" }}</span>
+        <h3>
+          <a class="post-link" href="{{ post.url | relative_url }}">
+            {{ post.title }}
+          </a>
+        </h3>
+        {% if post.excerpt %}
+        <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+
+</div>
